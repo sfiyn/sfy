@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: springbootConfig
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sfiyn/sfy
+          #search-paths: /test/config
+          username: sfiyn
+          password: sysunf0917
+server:
+  port: 6002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
